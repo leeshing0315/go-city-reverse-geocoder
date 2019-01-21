@@ -81,14 +81,14 @@ func findNearestZOrder(k int, lat float64, lon float64) []cityHeapNode {
 }
 
 type Result struct {
-	country      string
-	country_code string
-	region       string
-	region_code  string
-	city         string
-	latitude     float64
-	longitude    float64
-	distance     float64
+	Country      string
+	Country_code string
+	Region       string
+	Region_code  string
+	City         string
+	Latitude     float64
+	Longitude    float64
+	Distance     float64
 }
 
 func GetNearestCities(lat float64, lon float64, k int, units string) ([]Result, error) {
@@ -111,14 +111,14 @@ func GetNearestCities(lat float64, lon float64, k int, units string) ([]Result, 
 			distance = math.Acos(location.distance) * 3959.0
 		}
 		results = append(results, Result{
-			country:      location.city.src.country,
-			country_code: location.city.src.country_code,
-			region:       location.city.src.region,
-			region_code:  location.city.src.region_code,
-			city:         location.city.src.name,
-			latitude:     location.city.src.lat,
-			longitude:    location.city.src.lon,
-			distance:     distance,
+			Country:      location.city.src.country,
+			Country_code: location.city.src.country_code,
+			Region:       location.city.src.region,
+			Region_code:  location.city.src.region_code,
+			City:         location.city.src.name,
+			Latitude:     location.city.src.lat,
+			Longitude:    location.city.src.lon,
+			Distance:     distance,
 		})
 	}
 	return results, nil
